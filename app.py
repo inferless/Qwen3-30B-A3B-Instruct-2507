@@ -6,8 +6,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 @inferless.request
 class RequestObjects(BaseModel):
-    prompt: str = Field(default="Write a quick sort algorithm.")
-    system_prompt: Optional[str] = "You are a coding expert"
+    prompt: str = Field(default="Explain reinforcement learning in simple words.")
+    system_prompt: Optional[str] = "You are a friendly bot"
     max_new_tokens: Optional[int] = 100
     temperature: Optional[float] = 0.1
     top_p: Optional[float] = 1.0
@@ -19,7 +19,7 @@ class ResponseObjects(BaseModel):
 
 class InferlessPythonModel:
     def initialize(self):
-        model_name = "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+        model_name = "Qwen/Qwen3-30B-A3B-Instruct-2507"
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
