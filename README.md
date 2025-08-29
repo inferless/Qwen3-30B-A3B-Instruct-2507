@@ -1,14 +1,15 @@
-# Template - Deploy Qwen3-Coder-30B-A3B-Instruct using Inferless 
-Qwen3-Coder-30B-A3B-Instruct is an open-source, 30.5B-parameter Mixture-of-Experts (MoE) large language model built by Alibaba Cloud’s Qwen team and purpose-tuned for code generation and agentic tool use.
+# Template – Deploy Qwen3-30B-A3B-Instruct-2507 using Inferless
 
-Its **A3B** configuration activates only 3.3B weights, 8 of 128 experts—during inference, enabling throughput comparable to models one-tenth its total size while scoring ≈94 % pass@1 on HumanEval and other coding suites.
-Native support for a 256k token context window (extendable to 1M tokens with YaRN) lets the model reason across whole repositories or lengthy chats without chunking.
+Qwen3-30B-A3B-Instruct-2507 is an open-source, 30.5B-parameter Mixture-of-Experts (MoE) large language model from Alibaba Cloud’s Qwen team, tuned for broad instruction following, reasoning, multilingual tasks, and agentic tool use.
 
-Its chat template natively understands JSON tool definitions, enabling reliable function invocation in agent frameworks. The model has been released under the permissive Apache-2.0 license, the model can be freely integrated into commercial workflows.
+Its **A3B** configuration activates \~3.3B weights **8 of 128 experts** at inference time, delivering MoE efficiency while retaining strong quality (e.g., GPQA **70.4**, AIME25 **61.3**, LiveBench **69.0** on the model card’s suite).
 
+Native support for a **262,144 token** context window lets the model handle very long inputs. The chat template and tooling ecosystem natively support **function/tool calling**.
+
+Released under the permissive **Apache-2.0** license, Qwen3-30B-A3B-Instruct-2507 can be freely integrated into commercial workflows.
 
 ## TL;DR:
-- Deployment of Qwen3-Coder-30B-A3B-Instruct model using [transformers](https://github.com/huggingface/transformers).
+- Deployment of Qwen3-30B-A3B-Instruct-2507 model using [transformers](https://github.com/huggingface/transformers).
 - Dependencies defined in `inferless-runtime-config.yaml`.
 - GitHub/GitLab template creation with `app.py`, `inferless-runtime-config.yaml` and `inferless.yaml`.
 - Model class in `app.py` with `initialize`, `infer`, and `finalize` functions.
@@ -49,7 +50,7 @@ curl --location '<your_inference_url>' \
                     {
                       "name": "prompt",
                       "shape": [1],
-                      "data": ["Write a quick sort algorithm."],
+                      "data": ["Explain reinforcement learning in simple words."],
                       "datatype": "BYTES"
                     }
     ]
